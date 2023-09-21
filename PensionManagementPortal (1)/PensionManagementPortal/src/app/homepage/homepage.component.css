@@ -1,0 +1,51 @@
+.login,
+.image {
+  min-height: 100vh;
+}
+
+.c
+{
+  /* background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg'); */
+  /*background: rgb(2,0,36);*/
+  /*background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(7, 202, 241, 0.863) 100%);  */
+  margin-top: 15px;
+  height: 150vh;
+}
+
+.bg-image {
+  background-image: url("/assets/pension1.jpg");
+  background-size: cover;
+  background-position: center center;
+}
+
+
+button{
+  background: linear-gradient(90deg, rgb(40, 33, 172) 0%, rgb(23, 23, 172) 35%, rgb(8, 208, 248) 100%);  
+  color: white !important;
+  transition: transform .5s; /* Animation */
+  font-weight: 700;
+  
+}
+
+.col{
+
+  border: 4px ;
+  
+}
+
+
+img {
+  width:75%;
+  height: 75%;
+  border: 2px solid beige ;
+  border-radius: 10px ;
+}
+
+
+.aa
+{
+  
+    border-radius: 10px;
+     padding: 50px;
+  
+}

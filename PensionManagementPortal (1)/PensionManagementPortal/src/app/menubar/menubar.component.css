@@ -1,0 +1,21 @@
+a,button{
+color: white !important;
+font-weight: 500;
+}
+
+button:hover{
+    transform: scale(1.4);
+
+}
+
+
+
+nav
+{
+  /*background: linear-gradient(90deg, rgb(40, 33, 172) 0%, rgb(23, 23, 172) 35%, rgba(0,212,255,1) 100%);  */
+
+}
+
+*{
+    z-index: 100;
+}

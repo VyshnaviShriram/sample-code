@@ -1,0 +1,156 @@
+<app-navbar></app-navbar>
+<section class="intro">
+    <div class="bg-image pb-1" style="background-image: url('../../assets/images/tweets-bg.webp');">
+        <div class="mask d-flex align-items-center h-100">
+            <div class="container h-100 mt-5">
+                <div class="col-12 col-xl-6">
+                    <div class="d-flex justify-content-end mt-5">
+                        <input class="form-control" [(ngModel)]="userName" type="search" placeholder="Search"
+                            aria-label="Search">
+                    </div>
+                </div>
+                <div class="row justify-content-center h-100 mt-5">
+                    <div class="col-12 col-md-8 col-lg-6 col-xl-4 mb-5"
+                        *ngFor="let tweet of (tweets|async)! |tweets:userName;let i=index">
+                        <div class="card h-100" style="border-radius: 1rem;">
+                            <div class="card-body p-2 text-black ml-2">
+                                <div>
+                                    <div class="d-flex justify-content-between">
+                                        <a style="font-style: italic; font-size:80%;" class="btn btn-link"
+                                            (click)="getAllTweetsofUser(tweet.user.userName)">@{{tweet.user.userName}}</a>
+                                        <span style="font-size:80%;"> {{tweet.postDate|dateAgo }} </span>
+                                    </div>
+                                    <p style="font-weight:bold;"> {{ tweet.tweet}}
+                                        <span style="font-size:80%;"> {{ tweet.tweetTag}}</span>
+                                    </p>
+                                    <div class="d-flex justify-content-end align-items-center">
+                                        <button class="btn btn-primary" (click)="likeTweet(tweet.id)"> <i
+                                                class="fa fa-thumbs-up"> </i></button>
+                                        <span> {{ tweet.likes}}</span>
+                                        <button (click)="tweetReply = tweet" class="btn btn-primary ml-3"
+                                            data-toggle="modal" data-target="#replyTweet"><i
+                                                class="fa fa-reply"></i></button>
+                                        <a class="btn btn-link p-2 text-nowrap" style="color: darkcyan;"
+                                            (click)="hideReplies[i]=!hideReplies[i]">
+                                            <i class="fa fa-chevron-down" aria-hidden="true">
+                                                <span class="badge badge-pill" style="font-size: 12px;">{{
+                                                    tweet.replies.length }}</span>
+                                            </i>
+                                        </a>
+                                    </div>
+                                    <div id="collapseReplies" [hidden]="!hideReplies[i]">
+                                        <div class="d-flex flex-start mb-3 border border-primary rounded p-1 ml-2"
+                                            *ngFor="let reply of tweet.replies">
+                                            <div class="flex-grow-1 flex-shrink-1">
+                                                <div class="ml-3">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <p class="mb-1 text-primary font-weight-bold"
+                                                            style="font-family: 'Comic Sans MS', cursive, sans-serif;font-size: 12px;">
+                                                            @{{ reply.user.userName }} </p>
+                                                        <span class="small">{{ reply.postDate|dateAgo }}</span>
+                                                    </div>
+                                                    <p class="mb-0 ml-2 font-weight-bold" style="font-size: small;">{{
+                                                        reply.tweet }} <span class="text-success">{{ reply.tweetTag
+                                                            }}</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Reply Tweet -->
+                <div class="modal fade" id="replyTweet" tabindex="-1" role="dialog">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Reply Tweet</h5>
+                                <button type="button" class="close" #closeReplyModal data-dismiss="modal"
+                                    aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+
+                                <div class="d-flex flex-start mb-2" *ngIf="tweetReply != null">
+                                    <div class="flex-grow-1 flex-shrink-1">
+                                        <div class="ml-3">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <p class="mb-1 text-primary font-weight-bold"
+                                                    style="font-family: 'Comic Sans MS', cursive, sans-serif; font-size: 12px;">
+                                                    @{{ tweetReply.user.userName }}</p>
+                                                <span class="small">
+                                                    {{ tweetReply.postedDate | dateAgo }}
+                                                </span>
+                                            </div>
+                                            <p class="mb-0 ml-2 font-weight-bold" style="font-size: small;">{{
+                                                tweetReply.tweet }} <span class="text-success">{{ tweetReply.tweetTag
+                                                    }}</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="d-flex flex-start rounded">
+                                    <div class="flex-grow-1 flex-shrink-1">
+                                        <div class="ml-3 mr-1">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <p class="mb-1 text-primary font-weight-bold"
+                                                    style="font-family: 'Comic Sans MS', cursive, sans-serif;font-size: 12px;">
+                                                    @{{ user }} </p>
+                                            </div>
+
+                                            <div class="flex-grow-1 flex-shrink-1">
+                                                <form (ngSubmit)="replyTweet()" #Form="ngForm"
+                                                    [formGroup]='replyTweetForm'>
+
+                                                    <div class="form-group">
+                                                        <div class="input-group">
+                                                            <textarea class="form-control"
+                                                                [(ngModel)]="replyTweetMessage"
+                                                                formControlName="replyTweetMessage"
+                                                                style="font-size: 12px;"
+                                                                placeholder="Reply Message..."></textarea>
+                                                        </div>
+                                                        <small
+                                                            *ngIf="replyTweetForm.get('replyTweetMessage')?.errors?.['required'] && replyTweetForm.get('replyTweetMessage')?.touched "
+                                                            class="text-danger">Tweet Message is Required</small>
+                                                        <small
+                                                            *ngIf="replyTweetForm.get('replyTweetMessage')?.errors?.['maxlength'] && replyTweetForm.get('replyTweetMessage')?.touched "
+                                                            class="text-danger">Tweet Message cannot exceed 144
+                                                            characters</small>
+                                                    </div>
+
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <div class="form-group mt-2">
+                                                            <div class="input-group input-group-sm">
+                                                                <span class="mr-3"></span>
+                                                                <input type="text" placeholder="Tag:@tag #tag ..."
+                                                                    [(ngModel)]="replyTweetTag"
+                                                                    formControlName="replyTweetTag"
+                                                                    class="form-control">
+                                                            </div> <!-- input-group.// -->
+                                                            <small
+                                                                *ngIf="replyTweetForm.get('replyTweetTag')?.invalid && replyTweetForm.get('replyTweetTag')?.touched "
+                                                                class="text-danger">Tweet Tag cannot exceed 50
+                                                                characters</small>
+                                                        </div>
+                                                        <button class="btn btn-info btn-sm" type="submit"
+                                                            (click)="validateReplyTweetForm()"><i
+                                                                class="fa fa-reply mr-1"
+                                                                aria-hidden="true"></i>Reply</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

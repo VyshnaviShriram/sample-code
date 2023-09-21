@@ -1,0 +1,18 @@
+.intro {
+    height: 100%;
+  }
+  
+  .bg-image {
+    min-height: 1000px;
+    width: 100%;
+    background-repeat:no-repeat;
+    background-attachment: fixed;
+    background-position:bottom;
+    background-size:cover;
+  }
+
+  .container{
+    max-width: 70%;
+    
+  }
+ 

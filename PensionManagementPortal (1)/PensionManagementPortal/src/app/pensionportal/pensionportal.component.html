@@ -1,0 +1,37 @@
+<div class="c bg-image">
+  <br>
+  <div
+    class="col-lg-8 aa border border-5 border-dark shadow-sm align-items-center bg-light bg-gradient col-xl-8 mx-auto">
+    <br>
+    <h4 class="mx-auto text-center text-success">Welcome to Pension Management Portal</h4>
+    <br>
+    <h5 class="mx-auto text-center text-success">List of Pensioners</h5>
+    <br>
+    <div class="container">
+      <table class="table table-hover table-bordered">
+
+        <thead>
+          <tr class="mx-auto text-center text-info">
+            <th>Aadhaar</th>
+            <th>Name</th>
+            <th>DOB</th>
+            <th>PAN</th>
+            <th>PensionType</th>
+            <th>Calculate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="mx-auto text-center" *ngFor="let pensioner of pensionerList">
+            <td>{{pensioner.aadhaarNumber}}</td>
+            <td>{{pensioner.name}}</td>
+            <td>{{pensioner.dateOfBirth}}</td>
+            <td>{{pensioner.panNumber}}</td>
+            <td>{{pensioner.pensionType}}</td>
+            <td><button (click)="passtoCalculate(pensioner.aadhaarNumber)" routerLink="/dashboard"
+                class="btn rounded-pill border-0 shadow-sm px-3 btn-primary">Process</button></td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

@@ -1,0 +1,64 @@
+<section class="intro">
+  <div class="bg-image pb-1" style="background-image: url('../../assets/images/login.jpeg');">
+    <div class="mask d-flex align-items-center h-100 mb-4">
+      <div class="container h-100 my-5">
+        <div class="row justify-content-center h-100 my-5">
+          <div class="col-12 col-md-8 col-lg-6 col-xl-5 my-5">
+            <div class="card h-90 gradient-custom" style="border-radius: 1rem;">
+              <div class="card-body p-5">
+                <div>
+                  <div class="text-center pt-1">
+                    <h1 class="fw-bold mb-4">Log In</h1>
+                  </div>
+                  <div>
+                    <form (ngSubmit)="Form.form.valid && runLoginAuth()" #Form="ngForm" [formGroup]='exForm'>
+                      <p *ngIf='raiseError' class='text-center border border1-1 border-warning alert alert-warning'>
+                        Enter Valid Credentials
+                      </p>
+                      <div class="form-group">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-user"></i> </span>
+                          </div>
+                          <input type="text" [(ngModel)]="username" placeholder="Username" formControlName="username"
+                            class="form-control form-floating " />
+                        </div>
+                        <small *ngIf="exForm.get('username')?.invalid && exForm.get('username')?.touched"
+                          class="text-danger">Username is Required</small>
+                      </div>
+                      <br>
+
+                      <div class="form-group">
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-lock"></i> </span>
+                          </div>
+                          <input type="password" [(ngModel)]="password" formControlName="password"
+                            class="form-control form-floating" placeholder="Password">
+                        </div>
+                        <small *ngIf="exForm.get('password')?.invalid && exForm.get('password')?.touched"
+                          class="text-danger">Password is Required</small>
+                      </div>
+                      <br>
+                      <div class="text-center">
+                        <button class="btn btn-primary btn-lg btn-rounded px-5" type="submit"
+                          (click)="validateForm()">Login</button>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="text-center">
+                    <p class="mb-2"><a routerLink="/forgotPassword" class="fw-bold">Forgot password?</a></p>
+                  </div>
+                  <div class="text-center">
+                    <p class="mb-0"><a routerLink="/register" class="fw-bold">Don't have an Account? Register
+                        here</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

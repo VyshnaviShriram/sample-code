@@ -1,0 +1,36 @@
+<app-navbar></app-navbar>
+<section class="intro">
+    <div class="bg-image pb-1" style="background-image: url('../../assets/images/users-bg.webp');">
+        <div class="mask d-flex align-items-center h-100">
+            <div class="container h-100 mt-5">
+                <div class="col-12 col-xl-6">
+                    <div class="d-flex mt-5">
+                        <input class="form-control" [(ngModel)]="searchUsername" type="search" placeholder="Search"
+                            aria-label="Search">
+                    </div>
+                </div>
+                <div class="row justify-content-center h-100">
+                    <div class="col-12 col-md-8 col-lg-6 col-xl-4 my-4" *ngFor="let user of users|filter:searchUsername">
+                        <div class="card h-100 mt-5 mr-4" style="border-radius: 1rem;">
+                            <div class="card-body text-black">
+                                <div class="d-flex align-items-center" style="flex-direction:row;">
+                                    <div class="mr-3">
+                                        <span><i class="fa fa-user fa-3x"></i></span>
+                                    </div>
+                                    <div>
+                                        <span style="font-style: italic; font-weight: bold;"> {{user.userName}}</span>
+                                        <br>
+                                        <span style="font-size:80%;"> {{ user.firstName}}
+                                            {{user.lastName}}</span>
+                                        <br>
+                                        <span style="font-size:80%;"> {{user.email}} </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

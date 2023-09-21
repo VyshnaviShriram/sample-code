@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <div class="row no-gutter">
+        <div class="col-md-12 bg-image">
+            <div class="login d-flex align-items-center py-5">
+                <div class="container">
+                    <div class="row">
+                        <h3 class="display-4" style="padding-left: 20%;"><strong>Pension Management System</strong></h3>
+                        <div class="col-lg-10 col-xl-5 mx-auto">
+                            <p class="text-muted" style="padding-left: 150px;padding-bottom: 30px;padding-top: 10px;font-size: large;"><strong>Welcomes you!</strong></p>
+                            <form (ngSubmit)="Form.form.valid && runLoginAuth()" #Form="ngForm" [formGroup]='exForm'>
+                                <p *ngIf='raiseError'
+                                    class=' text-center border border1-1 border-warning alert alert-warning'>Enter Valid
+                                    credentials</p>
+
+                                <input type="text" [(ngModel)]="username" placeholder="Enter Your Name"
+                                    formControlName="name" class="form-control rounded-pill border-0 shadow-sm px-4">
+                                <small *ngIf="exForm.get('name').invalid && exForm.get('name').touched "
+                                    class="text-danger">Name is required</small>
+                                <br>
+
+                                <input type="password" [(ngModel)]="password" placeholder="Enter Your Password"
+                                    formControlName="password"
+                                    class="form-control rounded-pill border-0 shadow-sm px-4">
+                                <small *ngIf="exForm.get('password').invalid && exForm.get('password').touched "
+                                    class="text-danger">Password is required</small>
+                                <br>
+
+                                <button type="submit"
+                                    class="btn btn-primary w-50 mx-auto btn-block text-uppercase mb-2 rounded-pill shadow-sm"
+                                    (click)="validateForm()">Sign
+                                    in</button>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

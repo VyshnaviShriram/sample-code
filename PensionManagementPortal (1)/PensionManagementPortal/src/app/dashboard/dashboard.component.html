@@ -1,0 +1,87 @@
+<div class="c bg-image">
+    <br>
+    <div
+      class="col-lg-8 aa border border-5 border-dark shadow-sm align-items-center bg-light bg-gradient col-xl-8 mx-auto">
+      <br>
+      <h4 class="mx-auto text-center text-success h2">Pension Calculation Details</h4>
+      <br>
+      <div class="container">
+        <div class="row">            
+            <div class="col-lg-12 col-xl-7 mx-auto">
+                <form (ngSubmit)="Form.form.valid && runDisburse()" #Form="ngForm" [formGroup]='exForm'>
+                    <table class="table table-borderless">
+                        <tbody class="mx-auto text-left">
+                          <tr>
+                            <td class="pt-3 h5">Aadhaar Number :</td>
+                            <td>
+                                <input type="text" [(ngModel)]="aadhaarNumber" placeholder="Enter Aadhaar Number"
+                                formControlName="aadhaarNumber" class="form-control rounded-pill border-0 shadow-sm px-4" readonly=readonly>
+                                <small *ngIf="exForm.get('aadhaarNumber').invalid && exForm.get('aadhaarNumber').touched "
+                                class="text-danger">Aadhaar Number is required</small>
+                            </td>
+                          </tr>
+                          <tr>
+                              <td class="pt-3 h5">Name :</td>
+                              <td>
+                                <input type="text" [(ngModel)]="pensionDetail.name" placeholder="Enter the name"
+                                formControlName="name" class="form-control rounded-pill border-0 shadow-sm px-4" readonly=readonly>
+                                <small *ngIf="exForm.get('name').invalid && exForm.get('name').touched"
+                                class="text-danger">Name is required</small>
+                              </td>
+                          </tr>
+                          <tr>
+                            <td class="pt-3 h5">Date of Birth :</td>
+                            <td>
+                              <input type="text" [(ngModel)]="pensionDetail.dateOfBirth" placeholder="Enter the Date of Birth"
+                              formControlName="dateOfBirth" class="form-control rounded-pill border-0 shadow-sm px-4" readonly=readonly>
+                              <small *ngIf="exForm.get('dateOfBirth').invalid && exForm.get('dateOfBirth').touched"
+                              class="text-danger">Date of Birth is required</small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="pt-3 h5">Pan Number :</td>
+                            <td>
+                              <input type="text" [(ngModel)]="pensionDetail.panNumber" placeholder="Enter the Pan Number"
+                              formControlName="panNumber" class="form-control rounded-pill border-0 shadow-sm px-4" readonly=readonly>
+                              <small *ngIf="exForm.get('panNumber').invalid && exForm.get('panNumber').touched"
+                              class="text-danger">Pan Number is required</small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="pt-3 h5">Pension Amount :</td>
+                            <td>
+                              <input type="text" [(ngModel)]="pensionDetail.pensionAmount" placeholder="Enter the Pension Amount"
+                              formControlName="pensionAmount" class="form-control rounded-pill border-0 shadow-sm px-4" readonly=readonly>
+                              <small *ngIf="exForm.get('pensionAmount').invalid && exForm.get('pensionAmount').touched"
+                              class="text-danger">Pension Amount is required</small>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="pt-3 h5">Bank Service Charge :</td>
+                            <td>
+                              <input type="number" [(ngModel)]="bankServiceCharge" placeholder="Enter the Bank Service Charge"
+                              formControlName="bankServiceCharge" class="form-control rounded-pill border-0 shadow-sm px-4">
+                              <small *ngIf="exForm.get('bankServiceCharge').invalid && exForm.get('bankServiceCharge').touched"
+                              class="text-danger">Bank Service Charge is required</small>
+                            </td>
+                        </tr>
+                        </tbody>
+                      </table>
+
+                    <button type="submit" 
+                        class="btn btn-primary p-2 w-50 mx-auto btn-block text-uppercase mb-3 rounded-pill shadow-sm"
+                        >Disburse
+                        </button>
+                </form>
+
+                <hr>
+                <h4 *ngIf="processPensionResponse.processPensionStatusCode==10" style="color: green;">
+                {{processPensionResponse.status}}
+                </h4>
+                <h4 *ngIf="processPensionResponse.processPensionStatusCode==21" style="color:red;">
+                  {{processPensionResponse.status}}
+                </h4>
+            </div>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,42 @@
+.login,
+.image {
+  min-height: 100vh;
+}
+
+.center{
+  justify-content: center;
+}
+
+.img{
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(7, 202, 241, 0.863) 100%);  
+}
+.c
+{
+  /* background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg'); */
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(7, 202, 241, 0.863) 100%);  
+  margin-top: 30px;
+  height:90vw;
+}
+.form-wrapper{
+  margin:auto;
+}
+
+button{
+  background: linear-gradient(90deg, rgb(40, 33, 172) 0%, rgb(23, 23, 172) 35%, rgb(8, 208, 248) 100%);  
+  color: white !important;
+  transition: transform .5s; /* Animation */
+  font-weight: 600;
+}
+
+button:hover{
+  transform:scale(1.06)
+}
+
+.aa
+{
+  
+    border-radius: 10px;
+     padding: 50px;
+  
+}

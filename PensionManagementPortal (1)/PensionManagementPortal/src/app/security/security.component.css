@@ -1,0 +1,25 @@
+.login,
+.image {
+  min-height: 100vh;
+}
+.bg-image {
+  /* background-image: url("https://www.google.com/imgres?imgurl=https%3A%2F%2Ffilmdaily.co%2Fwp-content%2Fuploads%2F2021%2F04%2FFinance-1.jpg&imgrefurl=https%3A%2F%2Ffilmdaily.co%2Fnews%2Ffinance%2F&tbnid=E89ATKV5J8jQMM&vet=12ahUKEwjo2L6Ep6TyAhWOw3MBHdwjAA4QMygKegUIARDcAQ..i&docid=FxhqpCPXK2t0AM&w=1280&h=718&q=finance%20pics&ved=2ahUKEwjo2L6Ep6TyAhWOw3MBHdwjAA4QMygKegUIARDcAQ"); */
+ background-image: url("/assets/pension1.jpg");
+  background-size: cover;
+  background-position: center center;
+}
+
+button{
+  /*background: linear-gradient(90deg, rgb(40, 33, 172) 0%, rgb(23, 23, 172) 35%, rgba(0,212,255,1) 100%);  */
+  color: white !important;
+  transition: transform .5s; /* Animation */
+  font-weight: 700;
+}
+
+button:hover{
+  transform:scale(1.06)
+}
+
+i{
+  size: 2px;
+}

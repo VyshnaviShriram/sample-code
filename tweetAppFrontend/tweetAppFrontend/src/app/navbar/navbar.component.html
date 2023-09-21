@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand fixed-top navbar-dark bg-dark">
+  <div class="container-fluid">
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend mt-2 mr-2">
+          <span style="color: white;"><i class="fa fa-twitter fa-2x"></i> </span>
+        </div>
+        <span class="navbar-brand"><strong>Tweet App</strong></span>
+        </div>
+        </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-prepend mt-2">
+              <span style="color: white;"><i class="fa fa-home fa-x"></i> </span>
+            </div>
+            <li class="nav-item">
+              <button routerLink="/home" class="btn navbar-link" aria-current="page">Home</button>
+            </li>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-prepend mt-2">
+              <span style="color: white;"><i class="fa fa-comments"></i> </span>
+            </div>
+        <li class="nav-item">
+          <button routerLink="/tweets" class="btn navbar-link">Tweets</button>
+        </li>
+        </div>
+        </div>
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-prepend mt-2">
+              <span style="color: white;"><i class="fa fa-users"></i> </span>
+            </div>
+        <li class="nav-item">
+          <button routerLink="/users" class="btn navbar-link">Users</button>
+        </li>
+        </div>
+        </div>
+      </ul>
+      <ul class="navbar-nav navbar-collapse justify-content-end">
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-prepend mt-2">
+              <span style="color: white;"><i class="fa fa-sign-out"></i> </span>
+            </div>
+        <li class="nav-item mr-sm-4"><button routerLink="/logout" class="btn navbar-link">Logout</button></li>
+          </div>
+          </div>
+      </ul>
+    </div>
+  </div>
+</nav>

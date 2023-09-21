@@ -1,0 +1,98 @@
+<section class="intro">
+  <div class="bg-image h-100" style="background-image: url('../../assets/images/register-bg.webp');">
+    <div class="mask d-flex align-items-center h-100">
+      <div class="container">
+        <div class="row justify-content-center my-5">
+          <div class="col-12 col-md-10 col-lg-7 col-xl-6">
+            <div class="card mask-custom">
+              <div class="card-body p-5 text-black">
+                <div>
+                  <h2 class="text-center mb-5">Register Form</h2>
+                  <div>
+                    <form (ngSubmit)="Form.form.valid && registerUser()" #Form="ngForm" [formGroup]="exForm">
+                      <p *ngIf='raiseError' class='text-center alert alert-warning'>
+                        User Already Exists
+                      </p>
+                      <!-- 2 column grid layout with text inputs for the first and last names -->
+                      <div class="row">
+                        <div class="col-12 col-md-6 mb-3">
+                          <div class="form-outline form-white">
+                            <input type="text" [(ngModel)]="firstName" id="firstName" placeholder="First Name"
+                              formControlName="firstName" class="form-control" />
+                            <small *ngIf="exForm.get('firstName')?.invalid && exForm.get('firstName')?.touched"
+                              class="text-white">FirstName is Required</small>
+                          </div>
+                        </div>
+                        <div class="col-12 col-md-6 mb-3">
+                          <div class="form-outline form-white">
+                            <input type="text" [(ngModel)]="lastName" id="lastName" placeholder="Last Name"
+                              formControlName="lastName" class="form-control" />
+                            <small *ngIf="exForm.get('lastName')?.invalid && exForm.get('lastName')?.touched"
+                              class="text-white">LastName is Required</small>
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Email input -->
+                      <div class="form-group">
+                        <div class="form-outline form-white mb-3">
+                          <input type="email" [(ngModel)]="email" id="email" placeholder="Email Address"
+                            formControlName="email" class="form-control" />
+                          <small *ngIf="exForm.get('email')?.invalid && exForm.get('email')?.touched"
+                            class="text-white">Email is Required</small>
+                        </div>
+                      </div>
+
+                      <!-- LoginID input -->
+                      <div class="form-outline form-white mb-3">
+                        <input type="text" [(ngModel)]="userName" id="userName" placeholder="UserName"
+                          formControlName="userName" class="form-control" />
+                        <small *ngIf="exForm.get('userName')?.invalid && exForm.get('userName')?.touched"
+                          class="text-white">UserName is Required</small>
+                      </div>
+
+                      <!-- Password input -->
+                      <div class="form-outline form-white mb-3">
+                        <input type="password" [(ngModel)]="password" id="password" placeholder="Password"
+                          formControlName="password" class="form-control" />
+                        <small *ngIf="exForm.get('password')?.invalid && exForm.get('password')?.touched"
+                          class="text-white">Password is Required</small>
+                      </div>
+
+                      <!-- Confirm Password input -->
+                      <div class="form-outline form-white mb-3">
+                        <input type="password" [(ngModel)]="confirmPassword" id="confirmPassword"
+                          formControlName="confirmPassword" placeholder="Confirm Password " class="form-control" />
+                        <!-- <small *ngIf="exForm.get('confirmPassword')?.invalid && exForm.get('confirmPassword')?.touched"
+                          class="text-white"> Confirm Password is Required</small> -->
+                        <small *ngIf="exForm.get('confirmPassword')?.touched && password != confirmPassword"
+                          class="text-white">Password and Confirm Password must be same </small>
+                      </div>
+
+                      <!-- Contact Number input -->
+                      <div class="form-outline form-white mb-3">
+                        <input type="text" [(ngModel)]="contactNumber" id="contact" placeholder="Contact Number"
+                          formControlName="contactNumber" class="form-control" />
+                        <small *ngIf="exForm.get('contactNumber')?.invalid && exForm.get('contactNumber')?.touched"
+                          class="text-white">Contact Number is Required</small>
+                      </div>
+
+                      <!-- Submit button -->
+                      <button type="submit" style="background-color:rgb(54, 60, 117);"
+                        class="btn btn-light btn-block mb-4 " (click)="validateForm()">Register</button>
+                      <div class="text-center">
+                        <p class="mb-2"><a routerLink="/login" class="fw-bold">Go to Login page</a></p>
+                      </div>
+                    </form>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

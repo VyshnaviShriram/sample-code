@@ -1,0 +1,46 @@
+.login,
+.image {
+  min-height: 100vh;
+  max-height: 100vh;
+}
+
+.center{
+  justify-content: center;
+}
+
+.bg-image {
+  /* background-image: url("https://www.google.com/imgres?imgurl=https%3A%2F%2Ffilmdaily.co%2Fwp-content%2Fuploads%2F2021%2F04%2FFinance-1.jpg&imgrefurl=https%3A%2F%2Ffilmdaily.co%2Fnews%2Ffinance%2F&tbnid=E89ATKV5J8jQMM&vet=12ahUKEwjo2L6Ep6TyAhWOw3MBHdwjAA4QMygKegUIARDcAQ..i&docid=FxhqpCPXK2t0AM&w=1280&h=718&q=finance%20pics&ved=2ahUKEwjo2L6Ep6TyAhWOw3MBHdwjAA4QMygKegUIARDcAQ"); */
+ background-image: url("/assets/pension1.jpg");
+  background-size: cover;
+  background-position: center center;
+}
+.c
+{
+  /* background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg'); */
+  /*background: rgb(2,0,36);*/
+  /*background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(7, 202, 241, 0.863) 100%); */ 
+  margin-top: 30px;
+  height:90vw;
+}
+.form-wrapper{
+  margin:auto;
+}
+
+button{
+  /*background: linear-gradient(90deg, rgb(40, 33, 172) 0%, rgb(23, 23, 172) 35%, rgb(8, 208, 248) 100%);  */
+  color: white !important;
+  transition: transform .5s; /* Animation */
+  font-weight: 600;
+}
+
+button:hover{
+  transform:scale(1.06)
+}
+
+.aa
+{
+  
+    border-radius: 10px;
+     padding: 50px;
+  
+}
